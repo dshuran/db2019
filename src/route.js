@@ -60,7 +60,7 @@ function coordsToRoute(coords) {
         };
 
         coords.forEach(({lat, lng}, ind) => {
-            routingParameters[`waypoint${ind}`] = `!geo${lat},${lng}`;
+            routingParameters[`waypoint${ind}`] = `geo!${lat},${lng}`;
         });
         // Create the parameters for the routing request:
 
