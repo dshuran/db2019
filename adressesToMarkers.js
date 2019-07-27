@@ -1,12 +1,9 @@
 
-
 /*
     adresses - массив объектов типа T
     T = {
         searchText: 'SomeAdress'
     }
-
-
 */
 
 /* adresses = string[] */

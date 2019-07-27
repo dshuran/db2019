@@ -66,7 +66,7 @@ function coordsToRoute(coords) {
 
         router.calculateRoute(routingParameters, onResult.bind(null, res),
             function(error) {
-                alert(error.message);
+                console.error(error.message);
             });
     })
 }
