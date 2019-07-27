@@ -47,7 +47,7 @@ var onResult = function(resolve, result)
     let position = {};
     let locationResults = [];
 
-    for(i = 0; i < locations.length; i++)
+    for(let i = 0; i < locations.length; i++)
     {
         position = {
             lat: locations[i].Location.DisplayPosition.Latitude,
@@ -59,6 +59,4 @@ var onResult = function(resolve, result)
     resolve(locationResults);
 };
 
-getCoordinatesFromAdresses(['Moscow']).then((results) => {
-    console.log(results);
-});
+export default getCoordinatesFromAdresses;
