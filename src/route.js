@@ -1,3 +1,5 @@
+import { addMarkerToGroup } from "./mapBubbles.js";
+
 // Define a callback function to process the routing response:
 var onResult = function(resCallback, result) {
     var route,
@@ -21,17 +23,19 @@ var onResult = function(resCallback, result) {
         });
 
         route.waypoint.forEach(({mappedPosition}) => {
-            markers.push(new H.map.Marker({
+            let marker = new H.map.Marker({
                 lat: mappedPosition.latitude,
                 lng: mappedPosition.longitude
-            }));
+            });
+            addMarkerToGroup(marker, 'super text');
+            markers.push(marker);
         });
 
         routeLine = new H.map.Polyline(linestring, {
             style: { strokeColor: 'blue', lineWidth: 3 }
         });
 
-        map.addObjects([routeLine, ...markers]);
+        map.addObjects([routeLine]);
         map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
 
         resCallback(true);
