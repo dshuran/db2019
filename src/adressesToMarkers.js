@@ -34,18 +34,20 @@ function getCoordinatesFromAdressObjects(adressObjects, resolve)
         // Call the geocode method with the geocoding parameters,
         // the callback and an error callback function (called if a
         // communication error occurs):
-        geocoder.geocode(geocodingParams, onResult.bind(null, resolve), function(e) {
+        geocoder.geocode(geocodingParams, onResult, function(e) {
             alert(e);
         });
     }
+    resolve(locationResults);
 }
 
+let locationResults = [];
+
 // Define a callback function to process the geocoding response:
-var onResult = function(resolve, result) 
+var onResult = function(result) 
 {
-    var locations = result.Response.View[0].Result;
+    let locations = result.Response.View[0].Result;
     let position = {};
-    let locationResults = [];
 
     for(let i = 0; i < locations.length; i++)
     {
@@ -55,8 +57,6 @@ var onResult = function(resolve, result)
         };
         locationResults.push(position);
     }
-    
-    resolve(locationResults);
 };
 
 export default getCoordinatesFromAdresses;
