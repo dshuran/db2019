@@ -1,2 +1,4 @@
 .idea/
+/desktop.ini
+/web.config
 node_modules/

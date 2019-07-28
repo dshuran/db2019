@@ -13,8 +13,7 @@
     <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 
     <!-- HERE CSS Styles -->
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css?dp-version=1549984893" />
-
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
@@ -42,6 +41,13 @@
         });
     var mapEvents = new H.mapevents.MapEvents(map);
     var behavior = new H.mapevents.Behavior(mapEvents);
+
+    // initialize a map - this map is centered over Europe
+    // add a resize listener to make sure that the map occupies the whole container
+    window.addEventListener('resize', () => map.getViewPort().resize());
+
+    // create default UI with layers provided by the platform
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
 </script>
 
 <script src='index.js' type="module"></script>
