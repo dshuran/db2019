@@ -1,0 +1,33 @@
+html, body, #map {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+#orders td, th {
+    padding: 10px !important;
+    padding-left: 15px !important;
+}
+
+#orders thead th {
+    font-size: 1.5rem;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #282828;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999;
+}
+
+.overlay img {
+    max-width: 300px;
+    max-height: 300px;
+    opacity: 1;
+}
