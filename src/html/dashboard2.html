@@ -1,65 +1,171 @@
-<!DOCTYPE html>
-<!-- 
-Template Name: Mintos - Responsive Bootstrap 4 Admin Dashboard Template
-Author: Hencework
-Contact: https://hencework.ticksy.com/
-
-License: You must have a valid license purchased only from templatemonster to legally use the template for your project.
--->
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Mintos - SHARED ON THEMELOCK.COM  I Project Dashboard</title>
-    <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mintos - SHARED ON THEMELOCK.COM I CRM Dashboard</title>
+    <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-	
-	<!-- Morris Charts CSS -->
-    <link href="vendors/morris.js/morris.css" rel="stylesheet" type="text/css" />
-	
+
+    <!-- vector map CSS -->
+    <link href="vendors/vectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css">
+
     <!-- Toggles CSS -->
     <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
     <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
-	
-	<!-- Toastr CSS -->
+
+    <!-- Toastr CSS -->
     <link href="vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+    <style type="text/css">.jqstooltip {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        visibility: hidden;
+        background: rgb(0, 0, 0) transparent;
+        background-color: rgba(0, 0, 0, 0.6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+        white-space: nowrap;
+        padding: 5px;
+        border: 1px solid white;
+        z-index: 10000;
+    }
+
+    .jqsfield {
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+    }</style>
+    <style type="text/css">.jqstooltip {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        visibility: hidden;
+        background: rgb(0, 0, 0) transparent;
+        background-color: rgba(0, 0, 0, 0.6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+        white-space: nowrap;
+        padding: 5px;
+        border: 1px solid white;
+        z-index: 10000;
+    }
+
+    .jqsfield {
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+    }</style>
+    <style type="text/css">.jqstooltip {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        visibility: hidden;
+        background: rgb(0, 0, 0) transparent;
+        background-color: rgba(0, 0, 0, 0.6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+        white-space: nowrap;
+        padding: 5px;
+        border: 1px solid white;
+        z-index: 10000;
+    }
+
+    .jqsfield {
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+    }</style>
+
+    <!--    <style src="../dist/css/bootstrap.css"> </style>-->
+    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
+
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-data.js"></script>
+    <script type="text/javascript" src="https://js.datalens.api.here.com/latest/mapsjs-datalens.js"></script>
+    <script type="text/javascript" src="https://js.datalens.api.here.com/latest/mapsjs-datalens.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- HERE CSS Styles -->
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css?dp-version=1549984893" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" type="text/css" href="./custom.css">
+
+
+    <template id="orderTmpId">
+        <tr>
+            <td class="orderTitle"></td>
+            <td class="orderTime"></td>
+        </tr>
+    </template>
 </head>
 
-<body>
-    <!-- Preloader -->
-    <div class="preloader-it">
-        <div class="loader-pendulums"></div>
-    </div>
-    <!-- /Preloader -->
-	
-	<!-- HK Wrapper -->
-	<div class="hk-wrapper hk-horizontal-nav">
 
-        <!-- Top Navbar -->
-        <nav class="navbar navbar-expand-xl navbar-dark fixed-top hk-navbar">
-            <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="menu"></i></span></a>
-            <a class="navbar-brand" href="dashboard1.html">
-                <img class="brand-img d-inline-block" src="dist/img/logo-dark.png" alt="brand" />
-            </a>
-            <ul class="navbar-nav hk-navbar-content">
-                <li class="nav-item">
-                    <a id="navbar_search_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="search"></i></span></a>
-                </li>
-                <li class="nav-item">
-                    <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="settings"></i></span></a>
-                </li>
-                <li class="nav-item dropdown dropdown-notifications">
-                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="bell"></i></span><span class="badge-wrap"><span class="badge badge-primary badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
-                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                        <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">View all</a></h6>
-                        <div class="notifications-nicescroll-bar">
+<body>
+<!--custom-->
+<div id="demoQrCode" class="overlay">
+    <img src="dist/img/qrexample.png" alt="qrexample">
+</div>
+<!--custom-->
+
+<!-- Preloader -->
+<div class="preloader-it" style="display: none;">
+    <div class="loader-pendulums"></div>
+</div>
+<!-- /Preloader -->
+
+<!-- HK Wrapper -->
+<div class="hk-wrapper hk-vertical-nav">
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-dark fixed-top hk-navbar" style="background: #ffffff;box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);">
+            <span class="feather-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </span></a>
+        <a class="navbar-brand" href="dashboard1.html">
+            <img class="brand-img d-inline-block" src="dist/img/logo.png" style="max-width: 84px; max-height: 84px" alt="brand">
+        </a>
+        <ul class="navbar-nav hk-navbar-content">
+            <li class="nav-item">
+                <a id="navbar_search_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.35 340.35"><defs><style>.cls-1,.cls-2{fill:none;stroke-miterlimit:10;stroke-width:20px;}.cls-1{stroke:#d8d8d8;}.cls-2{stroke:url(#linear-gradient);}.cls-3{fill:#243c73;}.cls-4{fill:#305099;}.cls-5{fill:url(#linear-gradient-2);}.cls-6{font-size:41.14px;fill:#fff;font-family:TTCommons-Bold, TT Commons;font-weight:700;}</style><linearGradient id="linear-gradient" x1="170.03" y1="137.23" x2="340.06" y2="137.23" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/><stop offset="1" stop-color="#18284d"/></linearGradient><linearGradient id="linear-gradient-2" x1="252.29" y1="248.23" x2="340.35" y2="248.23" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/></linearGradient></defs><title>icon 1</title><g id="Плюшки"><path class="cls-1" d="M330.06,170.32a160,160,0,1,1-160-160A159.38,159.38,0,0,1,330.06,170.32Z"/><path class="cls-2" d="M170,10.29A160,160,0,0,1,296.75,268.07"/><path class="cls-3" d="M246.89,127.88c-3.81.77-9.81,3.16-17.5,4.69l3.34,5.5a2,2,0,0,1-.67,2.72,2.1,2.1,0,0,1-.3.15,2,2,0,0,1-2.43-.81l-3.47-5.72a2.24,2.24,0,0,0-2-1l-1.23.13a.76.76,0,0,0-.64,1.25l1.75,2.89a2,2,0,0,1-.67,2.73l-.29.15a2,2,0,0,1-2.44-.82L217.46,135a2.63,2.63,0,0,0-2-1.14l-1.55,0c-.73,0-1,.43-.63,1.05l1.48,2.46a2,2,0,0,1-.67,2.73,1.59,1.59,0,0,1-.29.15,2,2,0,0,1-2.43-.82l-3.07-5a3.26,3.26,0,0,0-2-1.34c-.69-.12-1.39-.25-2.08-.4s-1,.22-.61.84l2.15,3.54a2,2,0,0,1-1,2.88,2,2,0,0,1-2.44-.82l-5.32-8.78c-.54-.27-1-.55-1.45-.8-3.47-2.11-10.21-5.8-14.48-5.63A6.42,6.42,0,0,0,175,131c.19,1.45,1.66,3.4,2.6,4.53a7.6,7.6,0,0,0,2.25,1.88c1.31.66,2.08,1.61,1.39,2.9A46.57,46.57,0,0,1,172,152.68c-8.73,7.89-12.62,3.38-12.62,3.38s-5.2-6.44-9.89-7.64a7.39,7.39,0,0,0-5,1.1,7.17,7.17,0,0,0-1.11,1c2.7,4.41,10.81,14.41,29.34,15.71,24,1.68,64.93-12.41,72.56-15.13.69-.24.74-.13.12.25-4.57,2.78-22.42,13.17-42.23,18.4-24.34,6.41-48.36,8.26-61.46-8.31.05.46.09.89.12,1.26a33,33,0,0,0,2.45,11.67,18.43,18.43,0,0,1,.8,5.12,21.72,21.72,0,0,0,1.35,7c1,2.79,2,5.15,2.64,6.79a5.52,5.52,0,0,0,3.6,3.08,13.18,13.18,0,0,0,3.64.07c1.45-.18,3.74-.39,5.2-.5a10.39,10.39,0,0,0,2.1-.36c1.41-.41,2.91-1.22,3.52-1.42s1.21-.09,1.35.26,1,.35,1.84,0a3.13,3.13,0,0,0,1.83-1.68,2.09,2.09,0,0,1,1.05-1.37.9.9,0,0,1,1.16.49c.18.46,1,.56,1.81.23a2.72,2.72,0,0,0,1.65-1.67,1.9,1.9,0,0,1,.93-1.39,2.06,2.06,0,0,1,1.68.34,2.67,2.67,0,0,0,2.25.12,2.56,2.56,0,0,0,1.51-1.56c.11-.56.77-.83,1.49-.59a5.33,5.33,0,0,0,3.09-.29c1-.39,1.79-1.05,1.79-1.48a1.4,1.4,0,0,1,.91-1.14,2.17,2.17,0,0,1,1.7.1,2.81,2.81,0,0,0,2.33-.58,3.79,3.79,0,0,0,1.64-2.14.75.75,0,0,1,1.09-.68,5.54,5.54,0,0,0,2.8,0,4.24,4.24,0,0,0,2.36-1.37,2.63,2.63,0,0,1,1.46-1.11,1.08,1.08,0,0,1,1.19.59c.17.43,1.08.46,2.05.08a5.11,5.11,0,0,0,2.15-1.46,2.24,2.24,0,0,1,1.34-.95c.52-.11,1,0,1.14.32s.68.32,1.28.08a5.78,5.78,0,0,0,1.78-1.19,3.3,3.3,0,0,1,1.37-.9.78.78,0,0,1,.88.42c.12.31,1.33.13,2.68-.41l.21-.09c1.36-.54,2.31-1.35,2.13-1.8a.94.94,0,0,1,1.74-.69c.18.45,1.29.43,2.48,0a8,8,0,0,0,2.85-1.8,1.78,1.78,0,0,1,1.69-.67,7.89,7.89,0,0,0,3.4-.71c1.33-.53,2.51-1.37,2.64-1.88a3.28,3.28,0,0,1,1-1.53,1.25,1.25,0,0,1,1.46-.05c.39.31,1.7-.09,2.93-.88l.36-.24c1.23-.79,2.19-1.93,2.15-2.53a1.14,1.14,0,0,1,1.89-1.23,2.56,2.56,0,0,0,2.37-.6,3,3,0,0,0,1.14-2.65,2.61,2.61,0,0,1,.62-2.32.79.79,0,0,1,1.34.24c.23.56,1.28.22,2.36-.77s1.78-2.25,1.55-2.82a1.62,1.62,0,0,1,.24-1.64,1.34,1.34,0,0,1,1.29-.34c.35.16,1-.33,1.53-1.08a4.24,4.24,0,0,0,.76-2.26,10.56,10.56,0,0,1,1.23-3.18A12.24,12.24,0,0,0,261,131C255.51,123.14,255,126.26,246.89,127.88Z"/><path class="cls-4" d="M164,210c-3.82-.7-10.29-.71-18-2.14l1.06,6.34a2,2,0,0,1-1.63,2.29l-.34,0a2,2,0,0,1-2-1.65l-1.1-6.6a2.23,2.23,0,0,0-1.5-1.63l-1.2-.34a.76.76,0,0,0-1.05.93l.55,3.32a2,2,0,0,1-1.63,2.29l-.33,0a2,2,0,0,1-2-1.66l-.91-5.48a2.63,2.63,0,0,0-1.45-1.8l-1.42-.62c-.67-.3-1.11,0-1,.75l.47,2.83a2,2,0,0,1-1.64,2.29,1.66,1.66,0,0,1-.32,0,2,2,0,0,1-2-1.66l-1-5.83a3.3,3.3,0,0,0-1.35-2c-.59-.37-1.19-.74-1.78-1.14s-1-.16-.88.56l.69,4.08a2,2,0,0,1-1.64,2.29l-.32,0a2,2,0,0,1-2-1.66l-1.69-10.13c-.4-.46-.76-.9-1-1.29-2.44-3.24-7.33-9.16-11.36-10.59a6.41,6.41,0,0,0-8.33,4.38c-.36,1.41.27,3.77.72,5.17a7.78,7.78,0,0,0,1.4,2.58c1,1.1,1.33,2.27.21,3.21a46.34,46.34,0,0,1-13.14,8.05c-11,4.08-13-1.54-13-1.54s-2.44-7.92-6.35-10.77a7.43,7.43,0,0,0-5-.84,7,7,0,0,0-1.41.54c.87,5.09,4.69,17.39,21.42,25.46,21.69,10.48,64.9,12.56,73,12.87.73,0,.74.15,0,.27-5.27.89-25.71,3.92-46,1.43-25-3.07-48-10.26-54-30.51-.12.44-.24.85-.36,1.21a32.72,32.72,0,0,0-2.05,11.75,18.36,18.36,0,0,1-1.16,5,21.93,21.93,0,0,0-1.36,7c-.08,3-.08,5.51-.06,7.28a5.48,5.48,0,0,0,2.2,4.19,12.51,12.51,0,0,0,3.35,1.42c1.42.37,3.62,1,5,1.47a9.77,9.77,0,0,0,2.08.43c1.46.15,3.16,0,3.8,0s1.16.36,1.16.74.76.68,1.71.68a3.1,3.1,0,0,0,2.31-.88,2.11,2.11,0,0,1,1.49-.88.89.89,0,0,1,.89.88c0,.49.72.88,1.6.88a2.69,2.69,0,0,0,2.15-.93A1.89,1.89,0,0,1,78,241.6a2,2,0,0,1,1.44.94,2.65,2.65,0,0,0,2,.93,2.56,2.56,0,0,0,2-.88c.3-.49,1-.49,1.59,0a5.39,5.39,0,0,0,3,.88c1.07,0,2.06-.31,2.21-.71a1.4,1.4,0,0,1,1.27-.72,2.18,2.18,0,0,1,1.55.72,2.76,2.76,0,0,0,2.37.33,3.69,3.69,0,0,0,2.31-1.38.75.75,0,0,1,1.27-.22,5.51,5.51,0,0,0,2.6,1,4.35,4.35,0,0,0,2.7-.39,2.61,2.61,0,0,1,1.76-.5,1.09,1.09,0,0,1,.89,1c0,.45.83.82,1.87.82a5,5,0,0,0,2.54-.55,2.16,2.16,0,0,1,1.6-.38c.52.09.94.41.94.71s.51.55,1.16.55a5.86,5.86,0,0,0,2.09-.44,3.42,3.42,0,0,1,1.6-.33.78.78,0,0,1,.67.72c0,.34,1.18.61,2.64.61h.23c1.46,0,2.64-.4,2.64-.89a.94.94,0,0,1,1.88,0c0,.49,1,.89,2.32.89a8,8,0,0,0,3.3-.61,1.77,1.77,0,0,1,1.83,0,7.74,7.74,0,0,0,3.42.61c1.43,0,2.84-.35,3.14-.77a3.28,3.28,0,0,1,1.49-1.05,1.25,1.25,0,0,1,1.38.49c.24.43,1.6.54,3,.27l.43-.09c1.44-.28,2.75-1,2.93-1.56s.61-1.1.94-1.16a1.69,1.69,0,0,1,1.27.72,2.56,2.56,0,0,0,2.43.33,3,3,0,0,0,2-2,2.6,2.6,0,0,1,1.44-1.93c.63-.21,1.15.11,1.15.72s1.11.68,2.48.17,2.49-1.44,2.49-2.05a1.61,1.61,0,0,1,.82-1.43,1.34,1.34,0,0,1,1.33.16c.27.28,1.09.08,1.82-.44a4.26,4.26,0,0,0,1.54-1.82,11,11,0,0,1,2.33-2.49A12.22,12.22,0,0,0,176,218.15C173.75,208.83,172.1,211.53,164,210Z"/><circle class="cls-5" cx="296.32" cy="248.23" r="44.03"/><text class="cls-6" transform="translate(263.4 263.11)">35%</text></g></svg>        </span></a>
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span></a>
+            </li>
+            <li class="nav-item">
+                <a id="" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.35 340.35"><defs><style>.cls-1{fill:none;stroke-width:20px;stroke:url(#linear-gradient);}.cls-1,.cls-2{stroke-miterlimit:10;}.cls-2{fill:#ffd17d;stroke:#fff;stroke-width:2px;}.cls-3{fill:url(#linear-gradient-2);}</style><linearGradient id="linear-gradient" x1="0.09" y1="170.46" x2="340.23" y2="170.46" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/><stop offset="1" stop-color="#18284d"/></linearGradient><linearGradient id="linear-gradient-2" x1="119.91" y1="227.7" x2="235.36" y2="227.7" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/></linearGradient></defs><title>icon 2</title><g id="Плюшки"><path class="cls-1" d="M330.23,170.46A160.07,160.07,0,1,1,170.16,10.39,159.41,159.41,0,0,1,330.23,170.46Z"/><path class="cls-2" d="M138.39,194.61a17.23,17.23,0,0,1-1.1-4.5,6.19,6.19,0,0,0-6.41-5.64,6.43,6.43,0,0,1-5.94-8.34,6.47,6.47,0,0,0-4.06-8.06c-4.21-1.63-5.65-5.85-3.31-9.67,2.08-3.39,1.7-6.49-1.38-9.08a6.42,6.42,0,0,1-1.33-8.89,7.5,7.5,0,0,1,1.34-1.36,6.46,6.46,0,0,0,1.57-8.77,7.13,7.13,0,0,1-1.24-3,6.1,6.1,0,0,1,4-6.87,6.83,6.83,0,0,0,4.32-8.58,6.17,6.17,0,0,1,5.77-7.92,6.93,6.93,0,0,0,6.81-6.9,6.21,6.21,0,0,1,7.65-5.74c2.41.6,4.67.58,6.7-1.09a7,7,0,0,0,2-2.93c1.68-4.2,5.92-5.57,9.72-3.15a6.51,6.51,0,0,0,9.14-1.6,6.31,6.31,0,0,1,10,0c2.28,2.94,5.88,3.75,8.94,1.63a6.57,6.57,0,0,1,10.06,3.31,6.32,6.32,0,0,0,7.76,4c4.88-1.18,8.24,1.33,8.55,6.37.21,3.42,2.79,5.77,6.59,6a6.4,6.4,0,0,1,6,7.73,9.42,9.42,0,0,0-.41,2.24c0,3,1.33,5.39,4.18,6.33a6.54,6.54,0,0,1,3.27,10.06,6.37,6.37,0,0,0,1.3,8.64c3.81,3.24,3.81,7.41,0,10.59a6.46,6.46,0,0,0-1.68,8,9.63,9.63,0,0,0,.63,1,6.17,6.17,0,0,1-2.89,9.28,7,7,0,0,0-4.45,8.94c1.06,3.61-1.86,7.39-5.62,7.64-4.43.3-6.64,2.45-6.94,6.82a10.69,10.69,0,0,1-1.11,3.4,6.48,6.48,0,0,1-7.23,2.38,6.38,6.38,0,0,0-8,4.06c-1.74,4.33-5.91,5.69-9.87,3.22a6.39,6.39,0,0,0-8.94,1.48,6.4,6.4,0,0,1-10.31-.06,6.28,6.28,0,0,0-8.74-1.48A6.59,6.59,0,0,1,153.66,201c-1.13-3.42-4.41-4.93-7.9-4a7.23,7.23,0,0,1-3.07.24A7.54,7.54,0,0,1,138.39,194.61Z"/><path class="cls-3" d="M138.39,194.61a7.54,7.54,0,0,0,4.3,2.63,7.23,7.23,0,0,0,3.07-.24c3.49-.91,6.77.6,7.9,4a6.59,6.59,0,0,0,10.09,3.21,6.28,6.28,0,0,1,8.74,1.48,6.4,6.4,0,0,0,10.31.06,6.39,6.39,0,0,1,8.94-1.48c4,2.47,8.13,1.11,9.87-3.22a6.38,6.38,0,0,1,8-4.06,6.48,6.48,0,0,0,7.23-2.38,31.31,31.31,0,0,1,2.35,5.57q8,20.28,15.89,40.57c.08.21.15.43.28.8l-12-4.38c-6.76-2.49-13.52-5-20.27-7.48-.86-.32-1.19-.15-1.59.65q-7.44,14.67-14.94,29.29c-.2.38-.29.84-.76,1.13-2.68-6.86-5.37-13.7-8.15-20.79-2.77,7.06-5.45,13.91-8.15,20.78-.5-.24-.58-.72-.76-1.08q-7.48-14.62-14.93-29.28c-.41-.8-.68-1-1.65-.69-10.36,3.86-20.75,7.65-31.13,11.46l-1.14.41,4.76-12.12,13.26-33.9C138.06,195.24,138.23,194.93,138.39,194.61Z"/></g></svg></span></a>
+            </li>
+            <li class="nav-item">
+                <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.35 340.35"><defs><style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:20px;stroke:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}</style><linearGradient id="linear-gradient" x1="2.53" y1="172.94" x2="337.82" y2="172.94" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/><stop offset="1" stop-color="#18284d"/></linearGradient><linearGradient id="linear-gradient-2" x1="83.77" y1="172.94" x2="256.57" y2="172.94" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/></linearGradient></defs><title>icon 4</title><g id="Плюшки"><path class="cls-1" d="M327.82,172.94A157.65,157.65,0,1,1,170.17,15.3,156.93,156.93,0,0,1,327.82,172.94Z"/><path class="cls-2" d="M125.55,109.94a41.5,41.5,0,0,0-1.26-10.22,4.07,4.07,0,0,1,.34-2.82,11.54,11.54,0,0,1,4.62-4.82,36.65,36.65,0,0,1,15.53-5.29c3.67-.42,5.64.84,7,4.33a21.75,21.75,0,0,0,8.07,10.1c6.08,4.17,15.1,3.77,21.26-.8A20.09,20.09,0,0,0,188,91.64a9.23,9.23,0,0,1,3.43-4.16,3.75,3.75,0,0,1,2.11-.72c7.38.3,14,2.62,19.29,7.93l.41.46c2.41,2.35,2.71,5,1.34,8a18.88,18.88,0,0,0-.91,13.41,17.72,17.72,0,0,0,17.68,13.05,24,24,0,0,0,10.62-2.45,6.1,6.1,0,0,1,6.71,1.15,22.42,22.42,0,0,1,5,8.17A44.78,44.78,0,0,1,256.49,147a6.55,6.55,0,0,1-4.28,7.34c-6.5,2.68-11.14,7.18-13,14.1a18.66,18.66,0,0,0,11.07,22,13.63,13.63,0,0,1,3.89,2.65c2.07,1.94,2.29,4.54,1.94,7.19a31,31,0,0,1-5.09,13.55,11,11,0,0,1-6.94,4.9,8.83,8.83,0,0,1-4.41-.45c-3.46-1-7-1.82-10.58-1.34a32.43,32.43,0,0,0-6.91,1.6c-3.45,1.28-5.61,4.12-7.22,7.28a19.06,19.06,0,0,0-.26,17.08,7.52,7.52,0,0,1-2.47,9.52,33.94,33.94,0,0,1-17.76,6.8,4.84,4.84,0,0,1-4.3-1.77,13.24,13.24,0,0,1-2.13-3.27,23.18,23.18,0,0,0-8-10,17.62,17.62,0,0,0-21.55,1.15,23.86,23.86,0,0,0-7,9.56c-1.13,2.88-3.44,4.14-6.4,4.29a23,23,0,0,1-8.43-1.58A36,36,0,0,1,125.62,252l-.14-.1c-4-3.29-4.84-5.74-2.66-10.41a17.73,17.73,0,0,0,1-13.78c-2.07-5.87-6-9.77-12.48-10.55a29.37,29.37,0,0,0-12.09,1.08c-3.83,1.14-7,.14-9.27-3.14a33.56,33.56,0,0,1-6-16.33,12.91,12.91,0,0,1,.43-3.9,5.11,5.11,0,0,1,3.28-3.64,25.36,25.36,0,0,0,11.9-9.83,16.45,16.45,0,0,0-2.08-20.44,25.45,25.45,0,0,0-9-6.44c-2.69-1.05-3.88-3.09-4.44-5.67a15.33,15.33,0,0,1,.5-6.79,32.49,32.49,0,0,1,4.67-10.94,17.94,17.94,0,0,1,2.34-2.74,5.35,5.35,0,0,1,5.6-1.34,47.4,47.4,0,0,0,6.35,1.74c6.22,1,11.88-.3,16.73-4.56a14.19,14.19,0,0,0,4.45-8.11C125.1,113.69,125.36,111.23,125.55,109.94ZM170,132.47a40.31,40.31,0,1,0,40.39,40.27A40.22,40.22,0,0,0,170,132.47Z"/></g></svg></span></a>
+            </li>
+            <li class="nav-item dropdown dropdown-notifications">
+                <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.35 340.35"><defs><style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:20px;stroke:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:url(#linear-gradient-3);}.cls-4{fill:url(#linear-gradient-4);}.cls-5{fill:url(#linear-gradient-5);}.cls-6{fill:url(#linear-gradient-6);}.cls-7{fill:url(#linear-gradient-7);}</style><linearGradient id="linear-gradient" x1="0.34" y1="170.31" x2="340.18" y2="170.31" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/><stop offset="1" stop-color="#18284d"/></linearGradient><linearGradient id="linear-gradient-2" x1="101.45" y1="223.27" x2="127.35" y2="223.27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#305099"/><stop offset="0.53" stop-color="#243c73"/></linearGradient><linearGradient id="linear-gradient-3" x1="137.39" y1="226.6" x2="240.43" y2="226.6" xlink:href="#linear-gradient-2"/><linearGradient id="linear-gradient-4" x1="101.45" y1="112.41" x2="127.35" y2="112.41" xlink:href="#linear-gradient-2"/><linearGradient id="linear-gradient-5" x1="137.39" y1="114.01" x2="240.43" y2="114.01" xlink:href="#linear-gradient-2"/><linearGradient id="linear-gradient-6" x1="101.18" y1="167.84" x2="127.08" y2="167.84" xlink:href="#linear-gradient-2"/><linearGradient id="linear-gradient-7" x1="137.12" y1="170.31" x2="240.15" y2="170.31" xlink:href="#linear-gradient-2"/></defs><title>icon 3</title><g id="Плюшки"><path class="cls-1" d="M330.18,170.31A159.92,159.92,0,1,1,170.26,10.39,159.24,159.24,0,0,1,330.18,170.31Z"/><circle class="cls-2" cx="114.4" cy="223.27" r="12.95"/><rect class="cls-3" x="137.39" y="213.45" width="103.03" height="26.31" rx="1.75"/><circle class="cls-4" cx="114.4" cy="112.41" r="12.95"/><rect class="cls-5" x="137.39" y="100.86" width="103.03" height="26.31" rx="1.75"/><circle class="cls-6" cx="114.13" cy="167.84" r="12.95"/><rect class="cls-7" x="137.12" y="157.15" width="103.03" height="26.31" rx="1.75"/></g></svg></span></a>
+                <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                    <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">View all</a></h6>
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 330px;">
+                        <div class="notifications-nicescroll-bar" tabindex="-50" style="overflow: hidden; width: auto; height: 330px; outline: none;">
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <div class="media">
                                     <div class="media-img-wrap">
@@ -69,7 +175,9 @@ License: You must have a valid license purchased only from templatemonster to le
                                     </div>
                                     <div class="media-body">
                                         <div>
-                                            <div class="notifications-text"><span class="text-dark text-capitalize">Evie Ono</span> accepted your invitation to join the team</div>
+                                            <div class="notifications-text"><span class="text-dark text-capitalize">Evie Ono</span>
+                                                accepted your invitation to join the team
+                                            </div>
                                             <div class="notifications-time">12m</div>
                                         </div>
                                     </div>
@@ -121,7 +229,9 @@ License: You must have a valid license purchased only from templatemonster to le
                                     </div>
                                     <div class="media-body">
                                         <div>
-                                            <div class="notifications-text">Application of <span class="text-dark text-capitalize">Sarah Williams</span> is waiting for your approval</div>
+                                            <div class="notifications-text">Application of <span class="text-dark text-capitalize">Sarah Williams</span> is waiting
+                                                for your approval
+                                            </div>
                                             <div class="notifications-time">1w</div>
                                         </div>
                                     </div>
@@ -146,497 +256,84 @@ License: You must have a valid license purchased only from templatemonster to le
                                 </div>
                             </a>
                         </div>
+                        <div class="slimScrollBar" tabindex="-50" style="background: rgb(214, 217, 218); width: 6px; position: absolute; top: 0px; opacity: 0.8; display: none; border-radius: 0px; z-index: 99; right: 1px; outline: none;"></div>
+                        <div class="slimScrollRail" style="width: 6px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
                     </div>
-                </li>
-                <li class="nav-item dropdown dropdown-authentication">
-                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="media">
-                            <div class="media-img-wrap">
-                                <div class="avatar">
-                                    <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img rounded-circle">
-                                </div>
-                                <span class="badge badge-success badge-indicator"></span>
-                            </div>
-                            <div class="media-body">
-                                <span>Madelyn Shane<i class="zmdi zmdi-chevron-down"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                        <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>
-                        <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
-                        <div class="dropdown-divider"></div>
-                        <div class="sub-dropdown-menu show-on-hover">
-                            <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>
-                            <div class="dropdown-menu open-left-side">
-                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>
-                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>
-                                <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>
-                            </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <form role="search" class="navbar-search">
-            <div class="position-relative">
-                <a href="javascript:void(0);" class="navbar-search-icon"><span class="feather-icon"><i data-feather="search"></i></span></a>
-                <input type="text" name="example-input1-group2" class="form-control" placeholder="Type here to Search">
-                <a id="navbar_search_close" class="navbar-search-close" href="#"><span class="feather-icon"><i data-feather="x"></i></span></a>
-            </div>
-        </form>
-        <!-- /Top Navbar -->
-
-        <!--Horizontal Nav-->
-        <nav class="hk-nav hk-nav-light">
-            <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
-            <div class="nicescroll-bar">
-                <div class="navbar-nav-wrap">
-                    <ul class="navbar-nav flex-row">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drp">
-                                <span class="feather-icon"><i data-feather="activity"></i></span>
-                                <span class="nav-link-text">Dashboard</span>
-                            </a>
-                            <ul id="dash_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="dashboard1.html">CRM</a>
-                                        </li>
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="dashboard2.html">Project</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="dashboard3.html">Statistics</a>
-                                        </li>
-										<li class="nav-item">
-                                            <a class="nav-link" href="dashboard4.html">Classic</a>
-                                        </li>
-										<li class="nav-item">
-                                            <a class="nav-link" href="dashboard5.html">Analytics</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-with-indicator" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
-                                <span class="feather-icon"><span class="badge badge-primary badge-indicator badge-indicator-sm badge-pill"></span><i data-feather="package"></i></span>
-                                <span class="nav-link-text">Application</span>
-                            </a>
-                            <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="chats.html">Chat</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="calendar.html">Calendar</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="email.html">Email</a>
-                                        </li>
-										<li class="nav-item">
-                                            <a class="nav-link" href="file-manager.html">File Manager</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#pages_drp">
-                                <span class="feather-icon"><i data-feather="file-text"></i></span>
-                                <span class="nav-link-text">Pages</span>
-                            </a>
-                            <ul id="pages_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#auth_drp">
-														Authentication
-													</a>
-                                            <ul id="auth_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#signup_drp">
-																		Sign Up
-																	</a>
-                                                            <ul id="signup_drp" class="nav flex-column collapse collapse-level-2">
-                                                                <li class="nav-item">
-                                                                    <ul class="nav flex-column">
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="signup.html">Cover</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="signup-simple.html">Simple</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#signin_drp">
-																		Login
-																	</a>
-                                                            <ul id="signin_drp" class="nav flex-column collapse collapse-level-2">
-                                                                <li class="nav-item">
-                                                                    <ul class="nav flex-column">
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="login.html">Cover</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="login-simple.html">Simple</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#recover_drp">
-																		Recover Pwd
-																	</a>
-                                                            <ul id="recover_drp" class="nav flex-column collapse collapse-level-2">
-                                                                <li class="nav-item">
-                                                                    <ul class="nav flex-column">
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="forgot-password.html">Forgot Password</a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" href="reset-password.html">Reset Password</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="lock-screen.html">Lock Screen</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="404.html">Error 404</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="maintenance.html">Maintenance</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="profile.html">Profile</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="invoice.html">Invoice</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="gallery.html">Gallery</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="activity.html">Activity</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="faq.html">Faq</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#user_drp">
-                                <span class="feather-icon"><i data-feather="monitor"></i></span>
-                                <span class="nav-link-text">User Interface</span>
-                            </a>
-                            <ul id="user_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#Components_drp">
-												Components
-												</a>
-                                            <ul id="Components_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="alerts.html">Alerts</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="avatar.html">Avatar</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="badge.html">Badge</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="buttons.html">Buttons</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="cards.html">Cards</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="carousel.html">Carousel</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="collapse.html">Collapse</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="dropdowns.html">Dropdown</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="list-group.html">List Group</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="modal.html">Modal</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="nav.html">Nav</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="navbar.html">Navbar</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="nestable.html">Nestable</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="pagination.html">Pagination</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="popovers.html">Popovers</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="progress.html">Progress</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="tooltip.html">Tooltip</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#content_drp">
-												Content
-												</a>
-                                            <ul id="content_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="typography.html">Typography</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="images.html">Images</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="media-object.html">Media Object</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#utilities_drp">
-												Utilities
-												</a>
-                                            <ul id="utilities_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="background.html">Background</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="border.html">Border</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="colors.html">Colors</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="embeds.html">Embeds</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="icons.html">Icons</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="shadow.html">Shadow</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="sizing.html">Sizing</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="spacing.html">Spacing</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#forms_drp">
-												Forms
-												</a>
-                                            <ul id="forms_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="form-element.html">Form Elements</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="input-groups.html">Input Groups</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="form-layout.html">Form Layout</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="form-mask.html">Form Mask</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="form-validation.html">Form Validation</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="form-wizard.html">Form Wizard</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="file-upload.html">File Upload</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="editor.html">Editor</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#tables_drp">
-												Tables
-												</a>
-                                            <ul id="tables_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="basic-table.html">Basic Table</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="data-table.html">Data Table</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="responsive-table.html">Responsive Table</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="editable-table.html">Editable Table</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#charts_drp">
-												Charts
-												</a>
-                                            <ul id="charts_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="line-charts.html">Line Chart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="area-charts.html">Area Chart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="bar-charts.html">Bar Chart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="pie-charts.html">Pie Chart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="realtime-charts.html">Realtime Chart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="mini-charts.html">Mini Chart</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_drp">
-												Maps
-												</a>
-                                            <ul id="maps_drp" class="nav flex-column collapse collapse-level-2">
-                                                <li class="nav-item">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="google-map.html">Google Map</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="vector-map.html">Vector Map</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="documentation.html" >
-                                <span class="feather-icon"><i data-feather="book"></i></span>
-                                <span class="nav-link-text">Documentation</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-with-badge" href="#">
-                                <span class="feather-icon"><i data-feather="eye"></i></span>
-                                <span class="nav-link-text">Changelog</span>
-                                <span class="badge badge-success badge-sm badge-pill">v 1.0</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-        </nav>
-        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
-        <!--/Horizontal Nav-->
+            </li>
+            <li class="nav-item dropdown dropdown-authentication">
+                <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="media">
+                        <div class="media-img-wrap">
+                            <div class="avatar">
+                                <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img rounded-circle">
+                            </div>
+                            <span class="badge badge-success badge-indicator"></span>
+                        </div>
+                        <div class="media-body">
+                            <span>Madelyn Shane<i class="zmdi zmdi-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                    <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>
+                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>
+                    <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>
+                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
+                    <div class="dropdown-divider"></div>
+                    <div class="sub-dropdown-menu show-on-hover">
+                        <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>
+                        <div class="dropdown-menu open-left-side">
+                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>
+                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>
+                            <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                </div>
+            </li>
+        </ul>
+    </nav>
 
-        <!-- Setting Panel -->
-        <div class="hk-settings-panel">
-            <div class="nicescroll-bar position-relative">
+    <!-- /Top Navbar -->
+
+    <!-- Vertical Nav -->
+
+    <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
+    <!-- /Vertical Nav -->
+
+    <!-- Setting Panel -->
+    <div class="hk-settings-panel">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+            <div class="nicescroll-bar position-relative" tabindex="-50" style="overflow: hidden; width: auto; height: 100%; outline: none;">
                 <div class="settings-panel-wrap">
                     <div class="settings-panel-head">
-                        <img class="brand-img d-inline-block align-top" src="dist/img/logo-light.png" alt="brand" />
-                        <a href="javascript:void(0);" id="settings_panel_close" class="settings-panel-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
+                        <img class="brand-img d-inline-block align-top" src="dist/img/logo-light.png" alt="brand">
+                        <a href="javascript:void(0);" id="settings_panel_close" class="settings-panel-close"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span></a>
                     </div>
                     <hr>
                     <h6 class="mb-5">Layout</h6>
                     <p class="font-14">Choose your preferred layout</p>
                     <div class="layout-img-wrap">
                         <div class="row">
-                            <a href="dashboard1.html" class="col-6 mb-30">
+                            <a href="javascript:void(0);" class="col-6 mb-30 active">
                                 <img class="rounded opacity-70" src="dist/img/layout1.png" alt="layout">
                                 <i class="zmdi zmdi-check"></i>
                             </a>
-                            <a href="javascript:void(0);" class="col-6 mb-30 active">
+                            <a href="dashboard2.html" class="col-6 mb-30">
                                 <img class="rounded opacity-70" src="dist/img/layout2.png" alt="layout">
                                 <i class="zmdi zmdi-check"></i>
                             </a>
-                           <a href="dashboard3.html" class="col-6 mb-30">
+                            <a href="dashboard3.html" class="col-6 mb-30">
                                 <img class="rounded opacity-70" src="dist/img/layout3.png" alt="layout">
                                 <i class="zmdi zmdi-check"></i>
                             </a>
-							<a href="dashboard4.html" class="col-6 mb-30">
+                            <a href="dashboard4.html" class="col-6 mb-30">
                                 <img class="rounded opacity-70" src="dist/img/layout4.png" alt="layout">
                                 <i class="zmdi zmdi-check"></i>
                             </a>
-							<a href="dashboard5.html" class="col-6">
+                            <a href="dashboard5.html" class="col-6">
                                 <img class="rounded opacity-70" src="dist/img/layout5.png" alt="layout">
                                 <i class="zmdi zmdi-check"></i>
                             </a>
@@ -644,7 +341,7 @@ License: You must have a valid license purchased only from templatemonster to le
                     </div>
                     <hr>
                     <h6 class="mb-5">Navigation</h6>
-                    <p class="font-14">Menu comes in two modes: dark & light</p>
+                    <p class="font-14">Menu comes in two modes: dark &amp; light</p>
                     <div class="button-list hk-nav-select mb-10">
                         <button type="button" id="nav_light_select" class="btn btn-outline-primary btn-sm btn-wth-icon icon-wthot-bg"><span class="icon-label"><i class="fa fa-sun-o"></i> </span><span class="btn-text">Light Mode</span></button>
                         <button type="button" id="nav_dark_select" class="btn btn-outline-light btn-sm btn-wth-icon icon-wthot-bg"><span class="icon-label"><i class="fa fa-moon-o"></i> </span><span class="btn-text">Dark Mode</span></button>
@@ -659,463 +356,223 @@ License: You must have a valid license purchased only from templatemonster to le
                     <hr>
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Scrollable Header</h6>
-                        <div class="toggle toggle-sm toggle-simple toggle-light toggle-bg-primary scroll-nav-switch"></div>
+                        <div class="toggle toggle-sm toggle-simple toggle-light toggle-bg-primary scroll-nav-switch" style="height: 20px; width: 35px;"><div class="toggle-slide"><div class="toggle-inner" style="width: 50px; margin-left: -15px;"><div class="toggle-on" style="height: 20px; width: 25px; text-indent: -6.66667px; line-height: 20px;"></div><div class="toggle-blob" style="height: 20px; width: 20px; margin-left: -10px;"></div><div class="toggle-off active" style="height: 20px; width: 25px; margin-left: -10px; text-indent: 6.66667px; line-height: 20px;"></div></div></div></div>
                     </div>
                     <button id="reset_settings" class="btn btn-primary btn-block btn-reset mt-30">Reset</button>
                 </div>
             </div>
-            <img class="d-none" src="dist/img/logo-light.png" alt="brand" />
-            <img class="d-none" src="dist/img/logo-dark.png" alt="brand" />
+            <div class="slimScrollBar" tabindex="-50" style="background: rgb(214, 217, 218); width: 6px; position: absolute; top: 0px; opacity: 0.8; display: none; border-radius: 0px; z-index: 99; right: 1px; height: 165.888px; outline: none;"></div>
+            <div class="slimScrollRail" style="width: 6px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
         </div>
-        <!-- /Setting Panel -->
-
-        <!-- Main Content -->
-        <div class="hk-pg-wrapper">
-			<!-- Container -->
-            <div class="container mt-xl-50 mt-sm-30 mt-15">
-                <!-- Title -->
-                <div class="hk-pg-header">
-                    <div>
-						<h2 class="hk-pg-title font-weight-600">Project Management</h2>
-					</div>
-					<div class="d-flex mb-0 flex-wrap">
-                        <div class="btn-group btn-group-sm btn-group-rounded mb-15 mr-15" role="group">
-							<button type="button" class="btn btn-outline-primary">company</button>
-							<button type="button" class="btn btn-outline-primary">My Projects</button>
-						</div>
-						<button class="btn btn-sm btn-outline-primary btn-rounded btn-wth-icon icon-wthot-bg mb-15"><span class="icon-label"><span class="feather-icon"><i data-feather="plus"></i></span> </span><span class="btn-text">new projects</span></button>
-                    </div>
-                </div>
-                <!-- /Title -->
-
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hk-row">
-							<div class="col-lg-8">
-								<div class="card card-refresh">
-									<div class="refresh-container">
-										<div class="loader-pendulums"></div>
-									</div>
-									<div class="card-header card-header-action">
-										<h6>Double Click Campaigning Stats</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<a href="#" class="inline-block refresh mr-15">
-												<i class="ion ion-md-radio-button-off"></i>
-											</a>
-											<a href="#" class="inline-block full-screen">
-												<i class="ion ion-md-expand"></i>
-											</a>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="hk-legend-wrap mb-20">
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Click Rate</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-brown-light-5 rounded-circle d-inline-block"></span><span>Impressions</span>
-											</div>
-										</div>
-										<div id="area_chart" class="echart" style="height: 350px;"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-									<div class="card">
-									<div class="card-header card-header-action">
-										<h6>Risk</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="toggle toggle-sm toggle-simple toggle-light toggle-bg-primary risk-switch"></div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div id="e_chart_10" class="echart" style="height:325px;"></div>
-										<div class="hk-legend-wrap mt-20 mb-5">
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-2 rounded-circle d-inline-block"></span><span>Net Search</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Email Search</span>
-											</div>
-										</div>
-										<div class="hk-legend-wrap">
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-1 rounded-circle d-inline-block"></span><span>Direct Search</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-2 rounded-circle d-inline-block"></span><span>Paid Search</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="hk-row">
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">New projects this month</span>
-										<div class="d-flex align-items-center justify-content-between position-relative">
-											<div>
-												<span class="d-block display-5 font-weight-400 text-dark">12 New</span>
-											</div>
-											<div class="position-absolute r-0">
-												<span id="pie_chart_1" class="d-flex easy-pie-chart" data-percent="86">
-													<span class="percent head-font">86</span>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Active budget</span>
-										<div class="d-flex align-items-center justify-content-between position-relative">
-											<div>
-												<span class="d-block">
-													<span class="display-5 font-weight-400 text-dark">$<span class="counter-anim">140,260</span></span>
-												</span>
-											</div>
-											<div class="position-absolute r-0">
-												<span id="pie_chart_2" class="d-flex easy-pie-chart" data-percent="75">
-													<span class="percent head-font">75</span>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Revenue this month</span>
-										<div class="d-flex align-items-end justify-content-between">
-											<div>
-												<span class="d-block">
-													<span class="display-5 font-weight-400 text-dark">$8,725</span>
-													<small>excl tax</small>
-												</span>
-											</div>
-											<div>
-												<span class="text-success font-12 font-weight-600">+5%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Outstanding Invoices</span>
-										<div class="d-flex align-items-end justify-content-between">
-											<div>
-												<span class="d-block">
-													<span class="display-5 font-weight-400 text-dark">18 invoices</span>
-												</span>
-											</div>
-											<div>
-												<span class="text-danger font-12 font-weight-600">-12%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="hk-row">
-							<div class="col-lg-4">
-								<div class="card">
-									<div class="card-header card-header-action">
-										<h6>Balance Sheet Statistics</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="d-flex align-items-center card-action-wrap">
-												<a href="#" class="inline-block refresh mr-15">
-													<i class="ion ion-md-arrow-down"></i>
-												</a>
-												<a class="inline-block card-close" href="#" data-effect="fadeOut">
-													<i class="ion ion-md-close"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div id="flot_line_chart_moving" class="" style="height:334px;"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<div class="card-header card-header-action">
-										<h6>Budget</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="inline-block dropdown">
-												<a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="#">Action</a>
-													<a class="dropdown-item" href="#">Another action</a>
-													<a class="dropdown-item" href="#">Something else here</a>
-													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#">Separated link</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="hk-legend-wrap mb-20">
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-2 rounded-circle d-inline-block"></span><span>A1</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>A2</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-1 rounded-circle d-inline-block"></span><span>A3</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-3 rounded-circle d-inline-block"></span><span>A4</span>
-											</div>
-										</div>
-										<div id="e_chart_9" class="echart" style="height:287px;"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<div class="card-header card-header-action">
-										<h6>Lead Stats</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="inline-block dropdown">
-												<a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="#">Action</a>
-													<a class="dropdown-item" href="#">Another action</a>
-													<a class="dropdown-item" href="#">Something else here</a>
-													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#">Separated link</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="hk-legend-wrap mb-20">
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Won Leads</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-neon-light-1 rounded-circle d-inline-block"></span><span>Lost Leads</span>
-											</div>
-										</div>
-										<div id="e_chart_4" class="echart" style="height:294px;"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="d-flex align-items-center justify-content-between mt-40 mb-20">
-							<h4>Project Status</h4>
-							<button class="btn btn-sm btn-link">view all</button>
-						</div>
-						<div class="card">
-							<div class="card-body pa-0">
-								<div class="table-wrap">
-									<div class="table-responsive">
-										<table class="table table-sm table-hover mb-0">
-											<thead>
-												<tr>
-													<th>Logo</th>
-													<th>Project</th>
-													<th>Company</th>
-													<th>Update</th>
-													<th>Budget</th>
-													<th>Tasks</th>
-													<th class="w-20">Status</th>
-													<th>Deadline</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><img class="img-fluid rounded" src="dist/img/logo1.jpg" alt="icon"></td>
-													<td>Branding</td>
-													<td>Pineapple Inc</td>
-													<td>13 Nov 2018</td>
-													<td><span class="badge badge-success">Completed</span></td>
-													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>0</span></span></td>
-													<td>
-														<div class="progress-wrap lb-side-left mnw-125p">
-															<div class="progress-lb-wrap">
-																<label class="progress-label mnw-25p">95%</label>
-																<div class="progress progress-bar-xs">
-																	<div class="progress-bar bg-success w-95" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>10 Nov 2018</td>
-												</tr>
-												<tr>
-													<td><img class="img-fluid rounded" src="dist/img/logo2.jpg" alt="icon"></td>
-													<td>Website</td>
-													<td>Gooole co.</td>
-													<td>30 Nov 2018</td>
-													<td><span class="badge badge-primary">In Process</span></td>
-													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>3</span></span></td>
-													<td>
-														<div class="progress-wrap lb-side-left mnw-125p">
-															<div class="progress-lb-wrap">
-																<label class="progress-label mnw-25p">70%</label>
-																<div class="progress progress-bar-xs">
-																	<div class="progress-bar bg-primary w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>13 Dec 2018</td>
-												</tr>
-												<tr>
-													<td><img class="img-fluid rounded" src="dist/img/logo3.jpg" alt="icon"></td>
-													<td>Collaterals</td>
-													<td>Big Energy</td>
-													<td>12 Nov 2018</td>
-													<td><span class="badge badge-danger">Behind</span></td>
-													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>14</span></span></td>
-													<td>
-														<div class="progress-wrap lb-side-left mnw-125p">
-															<div class="progress-lb-wrap">
-																<label class="progress-label mnw-25p">35%</label>
-																<div class="progress progress-bar-xs">
-																	<div class="progress-bar bg-danger w-35" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>21 Oct 2018</td>
-												</tr>
-												<tr>
-													<td><img class="img-fluid rounded" src="dist/img/logo4.jpg" alt="icon"></td>
-													<td>Branding, Print</td>
-													<td>Novotel</td>
-													<td>10 Nov 2018</td>
-													<td><span class="badge badge-primary">In process</span></td>
-													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>6</span></span></td>
-													<td>
-														<div class="progress-wrap lb-side-left mnw-125p">
-															<div class="progress-lb-wrap">
-																<label class="progress-label mnw-25p">85%</label>
-																<div class="progress progress-bar-xs">
-																	<div class="progress-bar bg-primary w-85" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>14 Nov 2018</td>
-												</tr>
-												<tr>
-													<td><img class="img-fluid rounded" src="dist/img/logo5.jpg" alt="icon"></td>
-													<td>Web Application</td>
-													<td>Folkswagan</td>
-													<td>12 Nov 2018</td>
-													<td><span class="badge badge-danger">Behind</span></td>
-													<td><span class="d-flex align-items-center"><i class="zmdi zmdi-time-restore font-25 mr-10 text-light-40"></i><span>9</span></span></td>
-													<td>
-														<div class="progress-wrap lb-side-left">
-															<div class="progress-lb-wrap">
-																<label class="progress-label mnw-25p">30%</label>
-																<div class="progress progress-bar-xs">
-																	<div class="progress-bar bg-danger w-30" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-																</div>
-															</div>
-														</div>
-													</td>
-													<td>15 Oct 2018</td>
-												</tr>
-												
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>		
-					</div>
-                </div>
-                <!-- /Row -->
-            </div>
-            <!-- /Container -->
-			
-            <!-- Footer -->
-            <div class="hk-footer-wrap container">
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <p>Pampered by<a href="https://hencework.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <p class="d-inline-block">Follow us</p>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-            <!-- /Footer -->
-        </div>
-        <!-- /Main Content -->
-
+        <img class="d-none" src="dist/img/logo-light.png" alt="brand">
+        <img class="d-none" src="dist/img/logo-dark.png" alt="brand">
     </div>
-    <!-- /HK Wrapper -->
+    <!-- /Setting Panel -->
 
-    <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Main Content -->
+    <div style="min-height: 358px;">
+        <!-- Container -->
+        <div class="container mt-xl-50 mt-sm-30 mt-15">
+            <!-- Title -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- /Title -->
 
-    <!-- Slimscroll JavaScript -->
-    <script src="dist/js/jquery.slimscroll.js"></script>
+            <!-- Row -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hk-row">
 
-    <!-- Fancy Dropdown JS -->
-    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+                    </div>
+                    <div class="hk-row">
+                        <div class="col-lg-12">
 
-    <!-- FeatherIcons JavaScript -->
-    <script src="dist/js/feather.min.js"></script>
+                            <div class="card">
+                                <div class="card-header card-header-action">
+                                    <h6><br></h6>
+                                    <div class="d-flex align-items-center card-action-wrap">
+                                        <a href="#" class="inline-block refresh mr-15">
+                                            <i class="ion ion-md-arrow-down"></i>
+                                        </a>
+                                        <a href="#" class="inline-block full-screen">
+                                            <i class="ion ion-md-expand"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-body pa-0">
+                                    <div class="pa-20">
+                                        <div id="world_map_marker_1" style="height: 500px">
+                                            <div class="jvectormap-container" style="background-color: transparent;">
+                                                <div id="map" style="width: 1070px; height: 500px;"></div>
+                                                <div class="jvectormap-zoomin">+</div>
+                                                <div class="jvectormap-zoomout">−</div>
+                                                <div class="jvectormap-legend-cnt jvectormap-legend-cnt-h"></div>
+                                                <div class="jvectormap-legend-cnt jvectormap-legend-cnt-v"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-wrap" id="orders">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-hover mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th class="w-50" style="text-transform: none">Информация о заказе</th>
+                                                    <th class="display-1"></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="ordersTbodyId">
+                                                    <tr>
+                                                        <td style="">
+                                                            г. Москва, Брянская ул., д7, под. 6, ном. 237
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-secondary" style="font-size: 10px;">Согласованное время прибытия</span>
+                                                            <br>12:00 - 14:00
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <button type="button" class="btn btn-outline-primary bg-primary text-white" style="text-transform: none">
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbspФото от курьера&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary bg-primary text-white" style="text-transform: none">
+                                                                Открыть чат с курьером
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-secondary" style="font-size: 10px;">Состав заказа</span>
+                                                            <br>
+                                                            1. Смартфон Xiaomi Mi 9 64GB<br>2. Чехол для телефона
+                                                        </td>
 
-    <!-- Toggles JavaScript -->
-    <script src="vendors/jquery-toggles/toggles.min.js"></script>
-    <script src="dist/js/toggle-data.js"></script>
-	
-	<!-- Toastr JS -->
-    <script src="vendors/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-    
-	<!-- Counter Animation JavaScript -->
-	<script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
-	<script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
-	
-	<!-- Morris Charts JavaScript -->
-    <script src="vendors/raphael/raphael.min.js"></script>
-    <script src="vendors/morris.js/morris.min.js"></script>
-	
-	<!-- Easy pie chart JS -->
-    <script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-	
-	<!-- Flot Charts JavaScript -->
-    <script src="vendors/flot/excanvas.min.js"></script>
-    <script src="vendors/flot/jquery.flot.js"></script>
-    <script src="vendors/flot/jquery.flot.pie.js"></script>
-    <script src="vendors/flot/jquery.flot.resize.js"></script>
-    <script src="vendors/flot/jquery.flot.time.js"></script>
-    <script src="vendors/flot/jquery.flot.stack.js"></script>
-    <script src="vendors/flot/jquery.flot.crosshair.js"></script>
-    <script src="vendors/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-	
-	<!-- EChartJS JavaScript -->
-    <script src="vendors/echarts/dist/echarts-en.min.js"></script>
-    
-    <!-- Init JavaScript -->
-    <script src="dist/js/init.js"></script>
-	<script src="dist/js/dashboard2-data.js"></script>
-	
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="w-100" style="border-top:none;">
+                                                            <div class="d-flex justify-content-center">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-primary bg-primary text-white btn-block"
+                                                                        style="text-transform: none; margin-left: 250px;  max-width: 50vw; padding-top: 10px; padding-bottom: 10px;">
+                                                                    Я получил заказ
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                        <td style="border-top:none;">
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+
+        <!-- Footer -->
+        <div class="hk-footer-wrap container" style="
+    position: relative;
+">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p>Powered by<a href="#" class="text-dark" target="_blank">Landmark</a> ©
+                            2019</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="d-inline-block">Follow us</p>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /Footer -->
+    </div>
+    <!-- /Main Content -->
+
+</div>
+<!-- /HK Wrapper -->
+
+<!-- jQuery -->
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Slimscroll JavaScript -->
+<script src="dist/js/jquery.slimscroll.js"></script>
+
+<!-- Fancy Dropdown JS -->
+<script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+<!-- FeatherIcons JavaScript -->
+<script src="dist/js/feather.min.js"></script>
+
+<!-- Toggles JavaScript -->
+<script src="vendors/jquery-toggles/toggles.min.js"></script>
+<script src="dist/js/toggle-data.js"></script>
+
+<!-- Counter Animation JavaScript -->
+<script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="vendors/raphael/raphael.min.js"></script>
+<script src="vendors/morris.js/morris.min.js"></script>
+
+<!-- EChartJS JavaScript -->
+<script src="vendors/echarts/dist/echarts-en.min.js"></script>
+
+<!-- Sparkline JavaScript -->
+<script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+
+
+<!-- Owl JavaScript -->
+<script src="vendors/owl.carousel/dist/owl.carousel.min.js"></script>
+
+<!-- Toastr JS -->
+<script src="vendors/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+
+<!-- Init JavaScript -->
+<script src="dist/js/init.js"></script>
+<script src="dist/js/dashboard-data.js"></script>
+
+
+<div class="jq-toast-wrap top-right">
+
+
+    <div class="jq-toast-single jq-toast-primary" style="text-align: left; display: none;"><span class="jq-toast-loader jq-toast-loaded" style="-webkit-transition: width 3.1s ease-in;                       -o-transition: width 3.1s ease-in;                       transition: width 3.1s ease-in;                       background-color: #88c241;"></span><span class="close-jq-toast-single">×</span><h2 class="jq-toast-heading">Well done!</h2><p>You have successfully completed level 1.</p><button class="btn btn-primary btn-sm mt-10">Play again</button></div></div>
+
+<script>
+    var platform = new H.service.Platform({
+        'apikey': 'OGrHPB-qM1Actz294Bck2pgjPIY7ak-MKBpC9DoRCh4'
+    });
+    var targetElement = document.getElementById('map');
+    var defaultLayers = platform.createDefaultLayers({'lg':'RU'});
+    var map = new H.Map(
+        document.getElementById('map'),
+        defaultLayers.vector.normal.map,
+        {
+            zoom: 10,
+            center: { lat: 55.45, lng: 37.37 }
+        });
+    var mapEvents = new H.mapevents.MapEvents(map);
+    var behavior = new H.mapevents.Behavior(mapEvents);
+</script>
+
+<script src='index.js' type="module"></script>
+
 </body>
+
 
 </html>

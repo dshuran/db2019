@@ -51,16 +51,11 @@ let locationResults = [];
 var onResult = function(resolve, last, result) 
 {
     let locations = result.Response.View[0].Result;
-    let position = {};
-
-    for(let i = 0; i < locations.length; i++)
-    {
-        position = {
-            lat: locations[i].Location.DisplayPosition.Latitude,
-            lng: locations[i].Location.DisplayPosition.Longitude
-        };
-        locationResults.push(position);
-    }
+    let position = {
+        lat: locations[0].Location.DisplayPosition.Latitude,
+        lng: locations[0].Location.DisplayPosition.Longitude
+    };
+    locationResults.push(position);
     if(last === true) {
         resolve();
     }
