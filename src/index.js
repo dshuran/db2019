@@ -3,7 +3,7 @@ import coordsToRoute from './route.js'
 import {deployBubblesGroup} from './mapBubbles.js';
 import getBestSequence from '../waypointSequence.js';
 
-getCoordinatesFromAdresses(['Moscow', 'Paris', 'Berlin', 'Minsk'])
+getCoordinatesFromAdresses(['Москва,ул.старый арбат, д 10 ', 'Paris', 'Berlin', 'Minsk'])
     .then((result) => {
         deployBubblesGroup();
         console.log(result.length);
